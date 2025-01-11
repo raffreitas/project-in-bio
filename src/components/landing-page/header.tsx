@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Button } from "../ui";
 import { auth } from "@/lib/auth";
-import { manageAuth } from "@/app/actions/manage-autu";
+import { manageAuth } from "@/app/actions/manage-auth";
 
 export async function Header() {
   const session = await auth();

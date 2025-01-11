@@ -1,5 +1,6 @@
 import { ProjectCard, TotalVisits, UserCard } from "@/components/commons";
 import { Plus } from "lucide-react";
+import Link from "next/link";
 
 type ProfilePageProps = {
   params: Promise<{ profileId: string }>;
@@ -7,14 +8,15 @@ type ProfilePageProps = {
 
 export default async function ProfilePage({ params }: ProfilePageProps) {
   const { profileId } = await params;
-  console.log(profileId);
   return (
     <div className="relative h-screen flex p-20 overflow-hidden">
       <div className="fixed top-0 left-0 w-full flex justify-center items-center gap-1 py-2 bg-background-tertiary">
         <span>Você está usando a versão trial.</span>
-        <button className="text-accent-green font-bold">
-          Faça o upgrade agora!
-        </button>
+        <Link href={`/${profileId}/upgrade`}>
+          <button className="text-accent-green font-bold hover:underline">
+            Faça o upgrade agora!
+          </button>
+        </Link>
       </div>
       <div className="w-1/2 flex justify-center h-min">
         <UserCard />

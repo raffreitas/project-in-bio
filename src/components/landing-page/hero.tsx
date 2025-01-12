@@ -1,5 +1,6 @@
-import { ProjectCard, TotalVisits, UserCard } from "../commons";
+import { ProjectCard, TotalVisits } from "../commons";
 import { Button, TextInput } from "../ui";
+import { UserCard } from "../user-card";
 
 export function Hero() {
   return (
@@ -23,13 +24,21 @@ export function Hero() {
         <div className="relative">
           <UserCard />
           <div className="absolute -bottom-[7%] -right-[45%]">
-            <TotalVisits />
+            <TotalVisits totalVisits={15678} />
           </div>
           <div className="absolute top-[20%] -left-[45%] -z-10">
-            <ProjectCard />
+            <ProjectCard
+              name="Projeto 1"
+              img="/project1.jpg"
+              description="Descrição do projeto 1"
+            />
           </div>
           <div className="absolute -top-[5%] -left-[55%] -z-10">
-            <ProjectCard />
+            <ProjectCard
+              name="Projeto 2"
+              img="/project2.jpg"
+              description="Descrição do projeto 2"
+            />
           </div>
         </div>
       </div>

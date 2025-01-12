@@ -1,5 +1,6 @@
 import { db } from "@/lib/firebase";
 import "server-only";
+import { Link } from "../actions/add-custom-links";
 
 export type ProfileData = {
   userId: string;
@@ -12,6 +13,9 @@ export type ProfileData = {
     twitter: string;
   };
   updatedAt?: number;
+  link1?: Link;
+  link2?: Link;
+  link3?: Link;
 };
 
 export type ProjectData = {

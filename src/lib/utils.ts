@@ -40,3 +40,7 @@ export const compressImage = (file: File): Promise<File> => {
     imageCompression(file, options).then(resolve).catch(reject);
   });
 };
+
+export function formatUrl(url: string) {
+  return url.startsWith("http") ? url : `https://${url}`;
+}

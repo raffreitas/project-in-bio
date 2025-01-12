@@ -1,6 +1,7 @@
 "use client";
 
 import { ProjectData } from "@/app/server/get-profile-data";
+import { formatUrl } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -11,10 +12,7 @@ type ProjectCardProps = {
 };
 
 export function ProjectCard({ project, isOwner, img }: ProjectCardProps) {
-  const projectURL = project.projectURL;
-  const formattedURL = projectURL.startsWith("http")
-    ? projectURL
-    : `https://${projectURL}`;
+  const formattedURL = formatUrl(project.projectURL);
 
   function handleClick() {
     console.log("clicked");

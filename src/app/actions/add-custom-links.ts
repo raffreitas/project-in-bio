@@ -1,5 +1,6 @@
 "use server";
 
+import { auth } from "@/lib/auth";
 import { db } from "@/lib/firebase";
 
 export type Link = {
@@ -13,6 +14,11 @@ export async function addCustomLinks(links: {
   link2: Link;
   link3: Link;
 }) {
+  const session = await auth();
+
+  if (!session) {
+    return;
+  }
   try {
     await db.collection("profiles").doc(links.profileId).update({
       link1: links.link1,

@@ -1,9 +1,10 @@
-import { Github, Instagram, Linkedin, Twitter, Plus } from "lucide-react";
+import { Github, Instagram, Linkedin, Twitter } from "lucide-react";
 import { Button } from "../ui";
 import Image from "next/image";
+import { EditSocialLinks } from "./edit-social-links";
 
 export function UserCard() {
-  const icons = [Github, Instagram, Linkedin, Twitter, Plus];
+  const icons = [Github, Instagram, Linkedin, Twitter];
 
   return (
     <div className="w-[348px] flex flex-col gap-5 items-center p-5 border border-white border-opacity-10 bg-[#121212] rounded-3xl text-white">
@@ -35,14 +36,12 @@ export function UserCard() {
               <Icon />
             </button>
           ))}
+          <EditSocialLinks />
         </div>
       </div>
       <div className="flex flex-col gap-3 w-full h-[172px]">
         <div className="w-full flex flex-col items-center gap-3">
           <Button className="w-full">Template SaaS - Compre Agora</Button>
-          <button className="p-3 rounded-xl bg-[#1E1E1E] hover:bg-[#2E2E2E]">
-            <Plus />
-          </button>
         </div>
       </div>
     </div>

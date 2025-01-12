@@ -2,12 +2,13 @@ import {
   getProfileData,
   getProfileProjects,
 } from "@/app/server/get-profile-data";
-import { ProjectCard, TotalVisits, UserCard } from "@/components/commons";
+import { ProjectCard, TotalVisits } from "@/components/commons";
 import { auth } from "@/lib/auth";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { NewProject } from "./new-project";
 import { getDownloadURLFromPath } from "@/lib/firebase";
+import { UserCard } from "@/components/user-card";
 
 type ProfilePageProps = {
   params: Promise<{ profileId: string }>;

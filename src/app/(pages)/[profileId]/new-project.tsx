@@ -146,7 +146,7 @@ export function NewProject({ profileId }: { profileId: string }) {
                 <TextInput
                   type="url"
                   id="project-url"
-                  placeholder="Digeite a URL do projeto"
+                  placeholder="Digite a URL do projeto"
                   value={projectURL}
                   onChange={(e) => setProjectURL(e.target.value)}
                 />

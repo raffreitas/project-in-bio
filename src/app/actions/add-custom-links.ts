@@ -27,7 +27,9 @@ export async function addCustomLinks(links: {
     });
 
     return true;
-  } catch {
+  } catch (error) {
+    console.error(error);
+
     return false;
   }
 }

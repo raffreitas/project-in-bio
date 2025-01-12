@@ -19,7 +19,8 @@ export async function crateLink(link: string) {
     });
 
     return true;
-  } catch {
+  } catch (error) {
+    console.error(error);
     return false;
   }
 }

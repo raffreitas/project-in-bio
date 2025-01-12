@@ -1,9 +1,11 @@
 "use client";
 
+import { increaseProjectVisits } from "@/app/actions/increase-project-visits";
 import { ProjectData } from "@/app/server/get-profile-data";
 import { formatUrl } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 
 type ProjectCardProps = {
   project: ProjectData;
@@ -12,14 +14,17 @@ type ProjectCardProps = {
 };
 
 export function ProjectCard({ project, isOwner, img }: ProjectCardProps) {
+  const { profileId } = useParams();
+
   const formattedURL = formatUrl(project.projectURL);
 
-  function handleClick() {
-    console.log("clicked");
+  async function handleClick() {
+    if (!profileId || !profileId || isOwner) return;
+    await increaseProjectVisits(profileId as string, project.id);
   }
 
   return (
-    <Link href={formattedURL} onClick={handleClick}>
+    <Link href={formattedURL} onClick={handleClick} target="_blank">
       <div className="w-[430px] h-[132px] flex gap-5 bg-background-secondary p-3 rounded-[20px] border border-transparent hover:border-border-secondary">
         <div className="size-24 rounded-md overflow-hidden flex-shrink-0">
           <Image

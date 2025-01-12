@@ -1,7 +1,7 @@
 "use server";
 
 import { auth } from "@/lib/auth";
-import { db } from "@/lib/firebase";
+import { db, storage } from "@/lib/firebase";
 import { randomUUID } from "node:crypto";
 import { Timestamp } from "firebase-admin/firestore";
 
@@ -13,20 +13,18 @@ export async function createProject(formData: FormData) {
   const projectName = formData.get("projectName") as string;
   const projectDescription = formData.get("projectDescription") as string;
   const projectURL = formData.get("projectURL") as string;
-  // const file = formData.get("file") as File;
+  const file = formData.get("file") as File;
 
   const generatedId = randomUUID();
 
-  const imagePath = `projects-images/${profileId}/${generatedId}`;
+  const storageRef = storage.file(
+    `projects-images/${profileId}/${generatedId}`,
+  );
+  const arrayBuffer = await file.arrayBuffer();
+  const buffer = Buffer.from(arrayBuffer);
+  await storageRef.save(buffer);
 
-  // const storageRef = storage.file(
-  //   `projects-images/${profileId}/${generatedId}`,
-  // );
-  // const arrayBuffer = await file.arrayBuffer();
-  // const buffer = Buffer.from(arrayBuffer);
-  // await storageRef.seve(buffer);
-
-  // const imagePath = storageRef.name;
+  const imagePath = storageRef.name;
 
   try {
     await db

@@ -4,14 +4,18 @@ import { crateLink } from "@/app/actions/create-link";
 import { verifyLink } from "@/app/actions/verify-link";
 import { Button, TextInput } from "@/components/ui";
 import { sanitizeLink } from "@/lib/utils";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 import { ChangeEvent, FormEvent, useState } from "react";
 
 export function CreateLinkForm() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+
   const [error, setError] = useState("");
-  const [link, setLink] = useState("");
+  const [link, setLink] = useState(
+    sanitizeLink(searchParams.get("link") ?? ""),
+  );
 
   function handleLinkChange(e: ChangeEvent<HTMLInputElement>) {
     setLink(sanitizeLink(e.target.value));

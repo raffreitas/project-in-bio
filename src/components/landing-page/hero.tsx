@@ -1,6 +1,6 @@
 import { ProjectCard, TotalVisits } from "../commons";
-import { Button, TextInput } from "../ui";
 import { UserCard } from "../user-card";
+import { CreateNow } from "./create-now";
 
 export function Hero() {
   return (
@@ -14,11 +14,7 @@ export function Hero() {
           <br />
           Acompanhe o engajamento com Analytics de cliques
         </h2>
-        <div className="flex items-center gap-2 w-full mt-[10vh]">
-          <span className="text-white text-xl">projectinbio.com/</span>
-          <TextInput placeholder="Seu link" />
-          <Button>Criar agora</Button>
-        </div>
+        <CreateNow />
       </div>
       <div className="w-full flex items-center justify-center bg-[radial-gradient(circle_at_50%_50%,#4D2DBB,transparent_55%)]">
         <div className="relative">

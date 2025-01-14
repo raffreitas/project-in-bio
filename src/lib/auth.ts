@@ -17,7 +17,6 @@ declare module "next-auth" {
     createdAt: number;
     isTrial?: boolean;
     isSubscribed?: boolean;
-    isSubscribed?: boolean;
   }
 }
 

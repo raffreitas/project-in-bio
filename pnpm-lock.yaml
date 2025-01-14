@@ -9,7 +9,7 @@ importers:
   .:
     dependencies:
       '@auth/firebase-adapter':
-        specifier: ^2.7.4
+        specifier: ^2.7.2
         version: 2.7.4(firebase-admin@12.7.0)
       '@stripe/stripe-js':
         specifier: ^5.5.0

@@ -48,10 +48,12 @@ export async function getProfileProjects(profileId: string) {
 }
 
 export async function getProfileId(userId: string) {
+  if (!userId) return;
+
   const snapshot = await db
     .collection("profiles")
     .where("userId", "==", userId)
     .get();
 
-  return snapshot.docs[0].id;
+  return snapshot.docs.map((doc) => doc.id)[0];
 }

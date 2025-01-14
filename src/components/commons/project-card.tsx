@@ -11,8 +11,8 @@ type ProjectCardProps = {
   project?: ProjectData;
   isOwner?: boolean;
   img: string;
-  name: string;
-  description: string;
+  name?: string;
+  description?: string;
 };
 
 export function ProjectCard({
